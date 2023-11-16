@@ -48,20 +48,20 @@ class Główna
     private function policzSąsiednieBomby(array $tablicaZBombami, $wiersz, $kolumna): int
     {
         $liczbaBomb = 0;
-        // Sprawdzanie ośmiu sąsiadujących komórek (góra, dół, lewo, prawo, oraz cztery narożniki)
-        for ($i = -1; $i <= 1; $i++) {
-            for ($j = -1; $j <= 1; $j++) {
-                $sprWiersz = $wiersz + $i;
-                $sprKolumna = $kolumna + $j;
-    
-                // Sprawdzanie, czy nie wyszliśmy poza granice tablicy
-                if ($sprWiersz >= 0 && $sprWiersz < $this->liczbaWierszy && $sprKolumna >= 0 && $sprKolumna < $this->liczbaKolumn) {
-                    if ($tablicaZBombami[$sprWiersz][$sprKolumna] == "*") {
+        for ($poziomyModyfikator = -1; $poziomyModyfikator <= 1; $poziomyModyfikator++) {
+            for ($pionowyModyfikator = -1; $pionowyModyfikator <= 1; $pionowyModyfikator++) {
+                $sprawdzanyWiersz = $wiersz + $poziomyModyfikator;
+                $sprawdzanaKolumna = $kolumna + $pionowyModyfikator;
+                if ($sprawdzanyWiersz >= 0 && $sprawdzanyWiersz < $this->liczbaWierszy
+                 && $sprawdzanaKolumna >= 0 && $sprawdzanaKolumna < $this->liczbaKolumn
+                ) {
+                    if ($tablicaZBombami[$sprawdzanyWiersz][$sprawdzanaKolumna] === "*") {
                         $liczbaBomb++;
                     }
                 }
             }
         }
+
         return $liczbaBomb;
     }
 
