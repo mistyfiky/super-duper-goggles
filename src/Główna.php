@@ -16,9 +16,8 @@ class Główna
     {
         $wyzerowanaTablica = $this->stwórzWyzerowanąTablicę();
         $oznaczonaTablica = $this->oznaczMiejscaBomb($wyzerowanaTablica);
-        $policzonaTablica = $this->policzBomby($oznaczonaTablica);
 
-        return $policzonaTablica;
+        return $this->policzBomby($oznaczonaTablica);
     }
 
     private function stwórzWyzerowanąTablicę(): array
@@ -45,13 +44,13 @@ class Główna
         return $oznaczonaTablica;
     }
 
-    private function policzSąsiednieBomby(array $tablicaZBombami, $wiersz, $kolumna): int
+    private function policzSąsiednieBomby(array $tablicaZBombami, int $obecnyWiersz, int $obecnaKolumna): int
     {
         $liczbaBomb = 0;
         for ($poziomyModyfikator = -1; $poziomyModyfikator <= 1; $poziomyModyfikator++) {
             for ($pionowyModyfikator = -1; $pionowyModyfikator <= 1; $pionowyModyfikator++) {
-                $sprawdzanyWiersz = $wiersz + $poziomyModyfikator;
-                $sprawdzanaKolumna = $kolumna + $pionowyModyfikator;
+                $sprawdzanyWiersz = $obecnyWiersz + $poziomyModyfikator;
+                $sprawdzanaKolumna = $obecnaKolumna + $pionowyModyfikator;
                 if ($sprawdzanyWiersz >= 0 && $sprawdzanyWiersz < $this->liczbaWierszy
                  && $sprawdzanaKolumna >= 0 && $sprawdzanaKolumna < $this->liczbaKolumn
                 ) {
@@ -75,6 +74,7 @@ class Główna
                 }
             }
         }
+
         return $tablicaZPoliczonymiBombami;
     }
 }
