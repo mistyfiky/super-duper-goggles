@@ -2,7 +2,7 @@
          colors="true"
          verbose="true">
     <testsuites>
-        <testsuite name="Test Suite">
+        <testsuite name="Garnitur Testowy">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
