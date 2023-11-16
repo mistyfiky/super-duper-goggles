@@ -23,5 +23,12 @@ for ($wiersz = 0; $wiersz < $liczbaWierszy; $wiersz++) {
 
 $program = new Główna($liczbaWierszy, $liczbaKolumn, $tablica);
 
+echo "\n🇵🇱🧠";
+usleep(500000);
+echo "🇵🇱🧠";
+usleep(500000);
+echo "🇵🇱🧠\n\n";
+usleep(500000);
+
 drukujTablicę($program->rozpocznij());
 umrzyj();
