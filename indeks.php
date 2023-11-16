@@ -6,7 +6,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'a
 
 function umrzyj() { die; }
 
-echo "💣💣💣 Witaj w polskim Saperze! 💣💣💣\n";
+echo "🇵🇱💣🇵🇱💣🇵🇱💣 Witaj w polskim Saperze! 🇵🇱💣🇵🇱💣🇵🇱💣\n";
 
 $liniaPierwsza = readline();
 $liczbaWierszy = (int)explode(' ', $liniaPierwsza)[0];
