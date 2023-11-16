@@ -12,6 +12,6 @@
     },
     "scripts": {
         "uruchom": "php program.php",
-        "test": "phpunit"
+        "testuj": "phpunit"
     }
 }
