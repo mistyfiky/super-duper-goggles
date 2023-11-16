@@ -5,6 +5,11 @@ function umrzyj(): void
     die();
 }
 
+function rozbrzmij(string $tekst): void
+{
+    echo $tekst;
+}
+
 function drukujTablicę(array $tablica): void
 {
     $liczbaWierszy = count($tablica);

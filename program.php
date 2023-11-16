@@ -23,11 +23,11 @@ for ($wiersz = 0; $wiersz < $liczbaWierszy; $wiersz++) {
 
 $program = new Główna($liczbaWierszy, $liczbaKolumn, $tablica);
 
-echo "\n🇵🇱🧠";
+rozbrzmij("\n🇵🇱🧠");
 usleep(500000);
-echo "🇵🇱🧠";
+rozbrzmij("🇵🇱🧠");
 usleep(500000);
-echo "🇵🇱🧠\n\n";
+rozbrzmij("🇵🇱🧠\n\n");
 usleep(500000);
 
 drukujTablicę($program->rozpocznij());
