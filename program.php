@@ -1,10 +1,8 @@
 <?php
 
-use TwojProjekt\Program;
+use TwojProjekt\Główna;
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-
-function umrzyj() { die; }
 
 echo "🇵🇱💣🇵🇱💣🇵🇱💣 Witaj w polskim Saperze! 🇵🇱💣🇵🇱💣🇵🇱💣\n";
 
@@ -23,8 +21,7 @@ for ($wiersz = 0; $wiersz < $liczbaWierszy; $wiersz++) {
     }
 }
 
-$program = new Program($liczbaWierszy, $liczbaKolumn, $tablica);
+$program = new Główna($liczbaWierszy, $liczbaKolumn, $tablica);
 
-var_dump($program->programuj());
-
+drukujTablicę($program->rozpocznij());
 umrzyj();

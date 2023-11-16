@@ -1,19 +1,21 @@
 <?php
 
-use TwojProjekt\Program;
+use TwojProjekt\Główna;
 use PHPUnit\Framework\TestCase;
 
-class ProgramujTest extends TestCase
+class GłównaTest extends TestCase
 {
-    /** @dataProvider dostarcz */
+    /**
+     * @dataProvider dostarczDane
+     */
     public function testProgramuj(array $argumenty, array $przewidywane)
     {
-        $program = new Program(...$argumenty);
+        $program = new Główna(...$argumenty);
 
-        static::assertEquals($przewidywane, $program->programuj());
+        static::assertEquals($przewidywane, $program->rozpocznij());
     }
 
-    public static function dostarcz() : array
+    public static function dostarczDane() : array
     {
         return [
             [

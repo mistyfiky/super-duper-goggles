@@ -3,11 +3,15 @@
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
+        "files": [
+            "src/funkcje.php"
+        ],
         "psr-4": {
             "TwojProjekt\\": "src/"
         }
     },
     "scripts": {
+        "uruchom": "php program.php",
         "test": "phpunit"
     }
 }

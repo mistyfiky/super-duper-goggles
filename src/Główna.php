@@ -2,7 +2,7 @@
 
 namespace TwojProjekt;
 
-class Program
+class Główna
 {
     public function __construct(
         private int $liczbaWierszy,
@@ -12,7 +12,7 @@ class Program
     {
     }
 
-    public function programuj(): array
+    public function rozpocznij(): array
     {
         $wyzerowanaTablica = $this->stwórzWyzerowanąTablicę();
         $oznaczonaTablica = $this->oznaczMiejscaBomb($wyzerowanaTablica);
