@@ -1,34 +1,42 @@
 <?php
 
-use TwojProjekt\Główna;
+use PrzestrzeńNazw\Liczydło;
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+use const DIRECTORY_SEPARATOR as ROZDZIELACZ_KATALOGÓW;
+use const PHP_EOL as NOWA_LINIA;
+use function readline as odczytajLinię;
+use function explode as wybuchnij;
+use function array_fill as uzupełnijTablicę;
+use function str_split as rozłóżCiągZnaków;
+use function usleep as pracuj;
 
-echo "🇵🇱💣🇵🇱💣🇵🇱💣 Witaj w polskim Saperze! 🇵🇱💣🇵🇱💣🇵🇱💣\n";
+require_once __DIR__ . ROZDZIELACZ_KATALOGÓW . 'vendor' . ROZDZIELACZ_KATALOGÓW . 'autoload.php';
 
-$liniaPierwsza = readline();
-$liczbaWierszy = (int)explode(' ', $liniaPierwsza)[0];
-$liczbaKolumn = (int)explode(' ', $liniaPierwsza)[1];
-$tablica = [];
+rozbrzmij("🇵🇱💣🇵🇱💣🇵🇱💣 Witaj w polskim Saperze! 🇵🇱💣🇵🇱💣🇵🇱💣\n");
+
+$liniaPierwsza = odczytajLinię();
+$liczbaWierszy = (int)wybuchnij(' ', $liniaPierwsza)[0];
+$liczbaKolumn = (int)wybuchnij(' ', $liniaPierwsza)[1];
+$tablicaZBombami = [];
 for ($wiersz = 0; $wiersz < $liczbaWierszy; $wiersz++) {
-    $tablica[$wiersz] = array_fill(0, $liczbaKolumn, '.');
-    $kolejnaLinia = readline();
+    $tablicaZBombami[$wiersz] = uzupełnijTablicę(0, $liczbaKolumn, '.');
+    $kolejnaLinia = odczytajLinię();
     for ($kolumna = 0; $kolumna < $liczbaKolumn; $kolumna++) {
-        $znak = str_split($kolejnaLinia)[$kolumna] ?? null;
+        $znak = rozłóżCiągZnaków($kolejnaLinia)[$kolumna] ?? null;
         if ($znak !== null) {
-            $tablica[$wiersz][$kolumna] = $znak;
+            $tablicaZBombami[$wiersz][$kolumna] = $znak;
         }
     }
 }
 
-$program = new Główna($liczbaWierszy, $liczbaKolumn, $tablica);
+$program = new Liczydło();
 
-rozbrzmij("\n🇵🇱🧠");
-pracuj();
+rozbrzmij(NOWA_LINIA . "🇵🇱🧠");
+pracuj(500000);
 rozbrzmij("🇵🇱🧠");
-pracuj();
-rozbrzmij("🇵🇱🧠\n\n");
-pracuj();
+pracuj(500000);
+rozbrzmij("🇵🇱🧠" . NOWA_LINIA . NOWA_LINIA);
+pracuj(500000);
 
-drukujTablicę($program->rozpocznij());
+drukujTablicę($program->policzBomby($tablicaZBombami));
 umrzyj();

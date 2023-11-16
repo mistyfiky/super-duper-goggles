@@ -1,18 +1,18 @@
 <?php
 
-use TwojProjekt\Główna;
+use PrzestrzeńNazw\Liczydło;
 use PHPUnit\Framework\TestCase;
 
-class GłównaTest extends TestCase
+class LiczydłoTest extends TestCase
 {
     /**
      * @dataProvider dostarczDane
      */
-    public function testProgramuj(array $argumenty, array $przewidywane)
+    public function testPoliczBomby(array $tablicaZBombami, array $przewidywanaTablicaZPoliczonymiBombami)
     {
-        $program = new Główna(...$argumenty);
+        $liczydło = new Liczydło();
 
-        static::assertEquals($przewidywane, $program->rozpocznij());
+        static::assertEquals($przewidywanaTablicaZPoliczonymiBombami, $liczydło->policzBomby($tablicaZBombami));
     }
 
     public static function dostarczDane() : array
@@ -20,13 +20,10 @@ class GłównaTest extends TestCase
         return [
             [
                 [
-                    4, 4,
-                    [
-                        ['*', '.', '.', '.'],
-                        ['.', '.', '.', '.'],
-                        ['.', '*', '.', '.'],
-                        ['.', '.', '.', '.'],
-                    ],
+                    ['*', '.', '.', '.'],
+                    ['.', '.', '.', '.'],
+                    ['.', '*', '.', '.'],
+                    ['.', '.', '.', '.'],
                 ],
                 [
                     ['*', '1', '0', '0'],
@@ -37,12 +34,9 @@ class GłównaTest extends TestCase
             ],
             [
                 [
-                    3, 5,
-                    [
-                        ['*', '*', '.', '.', '.'],
-                        ['.', '.', '.', '.', '.'],
-                        ['.', '*', '.', '.', '.'],
-                    ],
+                    ['*', '*', '.', '.', '.'],
+                    ['.', '.', '.', '.', '.'],
+                    ['.', '*', '.', '.', '.'],
                 ],
                 [
                     ['*', '*', '1', '0', '0'],
@@ -52,14 +46,11 @@ class GłównaTest extends TestCase
             ],
             [
                 [
-                    5, 5,
-                    [
-                        ['.', '.', '.', '.', '*'],
-                        ['.', '.', '*', '*', '*'],
-                        ['.', '.', '.', '.', '.'],
-                        ['.', '.', '.', '.', '.'],
-                        ['*', '.', '.', '.', '.'],
-                    ],
+                    ['.', '.', '.', '.', '*'],
+                    ['.', '.', '*', '*', '*'],
+                    ['.', '.', '.', '.', '.'],
+                    ['.', '.', '.', '.', '.'],
+                    ['*', '.', '.', '.', '.'],
                 ],
                 [
                     ['0', '1', '2', '4', '*'],
@@ -71,14 +62,11 @@ class GłównaTest extends TestCase
             ],
             [
                 [
-                    5, 5,
-                    [
-                        ['.', '*', '*', '*', '.'],
-                        ['*', '.', '*', '*', '*'],
-                        ['*', '*', '*', '*', '*'],
-                        ['*', '*', '*', '*', '*'],
-                        ['.', '*', '*', '.', '*'],
-                    ],
+                    ['.', '*', '*', '*', '.'],
+                    ['*', '.', '*', '*', '*'],
+                    ['*', '*', '*', '*', '*'],
+                    ['*', '*', '*', '*', '*'],
+                    ['.', '*', '*', '.', '*'],
                 ],
                 [
                     ['2', '*', '*', '*', '3'],

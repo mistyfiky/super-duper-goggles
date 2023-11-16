@@ -7,7 +7,7 @@
             "src/funkcje.php"
         ],
         "psr-4": {
-            "TwojProjekt\\": "src/"
+            "PrzestrzeńNazw\\": "src/"
         }
     },
     "scripts": {

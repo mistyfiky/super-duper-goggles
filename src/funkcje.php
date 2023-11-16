@@ -1,18 +1,15 @@
 <?php
 
+use const PHP_EOL as NOWA_LINIA;
+
 function rozbrzmij(string $tekst): void
 {
     echo $tekst;
 }
 
-function pracuj(): void
-{
-    usleep(500000);
-}
-
 function umrzyj(): void
 {
-    rozbrzmij(PHP_EOL . 'copyright formoza' . PHP_EOL);
+    rozbrzmij(NOWA_LINIA . "© formoza" . NOWA_LINIA);
     die();
 }
 
@@ -28,6 +25,6 @@ function drukujTablicę(array $tablica): void
             else
                 echo $znak;
         }
-        echo PHP_EOL;
+        echo NOWA_LINIA;
     }
 }
