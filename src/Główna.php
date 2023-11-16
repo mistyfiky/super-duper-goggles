@@ -47,7 +47,22 @@ class Główna
 
     private function policzSąsiednieBomby(array $tablicaZBombami, $wiersz, $kolumna): int
     {
-        return 1;
+        $liczbaBomb = 0;
+        // Sprawdzanie ośmiu sąsiadujących komórek (góra, dół, lewo, prawo, oraz cztery narożniki)
+        for ($i = -1; $i <= 1; $i++) {
+            for ($j = -1; $j <= 1; $j++) {
+                $sprWiersz = $wiersz + $i;
+                $sprKolumna = $kolumna + $j;
+    
+                // Sprawdzanie, czy nie wyszliśmy poza granice tablicy
+                if ($sprWiersz >= 0 && $sprWiersz < $this->liczbaWierszy && $sprKolumna >= 0 && $sprKolumna < $this->liczbaKolumn) {
+                    if ($tablicaZBombami[$sprWiersz][$sprKolumna] == "*") {
+                        $liczbaBomb++;
+                    }
+                }
+            }
+        }
+        return $liczbaBomb;
     }
 
     private function policzBomby(array $tablicaZBombami): array
