@@ -16,14 +16,9 @@ class Główna
     {
         $wyzerowanaTablica = $this->stwórzWyzerowanąTablicę();
         $oznaczonaTablica = $this->oznaczMiejscaBomb($wyzerowanaTablica);
+        $policzonaTablica = $this->policzBomby($oznaczonaTablica);
 
-
-        return [
-            ['*', '1', '0', '0'],
-            ['2', '2', '1', '0'],
-            ['1', '*', '1', '0'],
-            ['1', '1', '1', '0'],
-        ];
+        return $policzonaTablica;
     }
 
     private function stwórzWyzerowanąTablicę(): array
@@ -41,13 +36,31 @@ class Główna
         $oznaczonaTablica = $wyzerowanaTablica;
         for ($wiersz = 0; $wiersz < $this->liczbaWierszy; $wiersz++) {
             for ($kolumna = 0; $kolumna < $this->liczbaKolumn; $kolumna++) {
-                if ($wyzerowanaTablica[$wiersz][$kolumna] === '*') {
+                if ($this->tablica[$wiersz][$kolumna] === '*') {
                     $oznaczonaTablica[$wiersz][$kolumna] = '*';
                 }
             }
         }
 
         return $oznaczonaTablica;
+    }
+
+    private function policzSąsiednieBomby(array $tablicaZBombami, $wiersz, $kolumna): int
+    {
+        return 1;
+    }
+
+    private function policzBomby(array $tablicaZBombami): array
+    {
+        $tablizaZPoliczonymiBombami = $tablicaZBombami;
+        for ($wiersz = 0; $wiersz < $this->liczbaWierszy; $wiersz++) {
+            for ($kolumna = 0; $kolumna < $this->liczbaKolumn; $kolumna++) {
+                if ($tablicaZBombami[$wiersz][$kolumna] != "*") {
+                    $this->policzSąsiednieBomby($tablicaZBombami, $wiersz, $kolumna);
+                }
+            }
+        }
+        return $tablizaZPoliczonymiBombami;
     }
 }
 
