@@ -52,15 +52,15 @@ class Główna
 
     private function policzBomby(array $tablicaZBombami): array
     {
-        $tablizaZPoliczonymiBombami = $tablicaZBombami;
+        $tablicaZPoliczonymiBombami = $tablicaZBombami;
         for ($wiersz = 0; $wiersz < $this->liczbaWierszy; $wiersz++) {
             for ($kolumna = 0; $kolumna < $this->liczbaKolumn; $kolumna++) {
                 if ($tablicaZBombami[$wiersz][$kolumna] != "*") {
-                    $this->policzSąsiednieBomby($tablicaZBombami, $wiersz, $kolumna);
+                    $tablicaZPoliczonymiBombami[$wiersz][$kolumna] = $this->policzSąsiednieBomby($tablicaZBombami, $wiersz, $kolumna);
                 }
             }
         }
-        return $tablizaZPoliczonymiBombami;
+        return $tablicaZPoliczonymiBombami;
     }
 }
 
