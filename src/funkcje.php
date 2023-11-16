@@ -1,13 +1,19 @@
 <?php
 
-function umrzyj(): void
-{
-    die();
-}
-
 function rozbrzmij(string $tekst): void
 {
     echo $tekst;
+}
+
+function pracuj(): void
+{
+    usleep(500000);
+}
+
+function umrzyj(): void
+{
+    rozbrzmij(PHP_EOL . 'copyright formoza' . PHP_EOL);
+    die();
 }
 
 function drukujTablicę(array $tablica): void

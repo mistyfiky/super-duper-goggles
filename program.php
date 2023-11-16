@@ -24,11 +24,11 @@ for ($wiersz = 0; $wiersz < $liczbaWierszy; $wiersz++) {
 $program = new Główna($liczbaWierszy, $liczbaKolumn, $tablica);
 
 rozbrzmij("\n🇵🇱🧠");
-usleep(500000);
+pracuj();
 rozbrzmij("🇵🇱🧠");
-usleep(500000);
+pracuj();
 rozbrzmij("🇵🇱🧠\n\n");
-usleep(500000);
+pracuj();
 
 drukujTablicę($program->rozpocznij());
 umrzyj();
